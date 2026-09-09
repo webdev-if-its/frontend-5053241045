@@ -4,7 +4,7 @@ export const NRP = '0000000000'
 // TODO(Level 3): kembalikan args[0] kalau ada isinya, kalau tidak kembalikan
 // fallback.
 export function resolveNama(args: string[], fallback: string): string {
-  return 'TODO'
+  return args[0] || fallback
 }
 
 // TODO(Level 5): gabungkan Nama, NRP, dan process.version jadi satu string
