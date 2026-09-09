@@ -36,7 +36,8 @@ App.tsx berisi component utama yang mengatur isi atau tampilan halaman aplikasi.
 - Kelas: RPL 
 
 ## Commit vs Push
-(tulis di sini)
+git commit adalah proses menyimpan perubahan ke git di komputer. Sedangkan git push adalah proses mengupload perubahan/commit dari komputer ke git.
+Contoh situasi : Ana sudah melakukan commit setelah mengerjakan tugas, tetapi ia lupa untuk melakukan push. Akibatnya, perubahan tersebut hanya tersimpan di komputer ana saja dan belum ada di github, sehingga teman satu timnya belum bisa melihat perubahan tersebut karena ana belum melakukan push
 
 ## JSX vs TSX
 (tulis di sini)
