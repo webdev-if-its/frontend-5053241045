@@ -12,7 +12,6 @@ Ini **project Vite + React + TypeScript sungguhan** — sama jenisnya dengan yan
 cd pertemuan-01
 npm install       # sekali di awal
 npm run dev       # lihat progresmu di browser (App.tsx merender hasil identitas.ts)
-npm run levels    # cek level mana yang sudah lolos
 npm run build     # pastikan project tetap bisa di-build
 ```
 
@@ -71,3 +70,4 @@ v22.14.0
 **Dicek otomatis:** `cetakInfo("Budi")` harus memuat `"Budi"`, memuat `NRP`, dan memuat pola versi Node (`v<angka>.<angka>.<angka>`).
 
 Sampai di sini, jalankan `npm run dev` dan buka alamat yang muncul di terminal (biasanya `http://localhost:5173`) — pastikan halamannya tampil tanpa error dan menunjukkan hasil `resolveNama`/`cetakInfo` kalian. Coba juga ubah sedikit teks apa pun di dalam `<h1>` pada `App.tsx`, simpan filenya, lalu lihat browser: halaman ter-update **otomatis tanpa reload manual** — itu namanya *Hot Module Replacement* (HMR), salah satu alasan Vite terasa cepat untuk development (langkah ini tidak dicek otomatis, cukup dicoba sendiri).
+npm run levels    # cek level mana yang sudah lolos

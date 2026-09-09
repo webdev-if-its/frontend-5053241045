@@ -27,12 +27,13 @@ Kalau dosen memperbaiki sesuatu di pertemuan yang sudah dirilis (mis. ada bug di
 Bagian di bawah ini **isi bertahap** sesuai level yang sedang kalian kerjakan (lihat `pertemuan-XX/SOAL.md`) — heading-nya dicek otomatis, jangan diganti namanya.
 
 ## Struktur Project
-(tulis di sini)
+main.tsx adalah file utama yang menjalankan file utama yang digunakan untuk menjalankan aplikasi React dan menghubungkannya dengan elemen root pada index.html.
+App.tsx berisi component utama yang mengatur isi atau tampilan halaman aplikasi.
 
 ## Identitas
-- Nama: (tulis di sini)
-- NRP: (tulis di sini)
-- Kelas: (tulis di sini)
+- Nama: Wulan Septiani
+- NRP: 5053241045
+- Kelas: RPL 
 
 ## Commit vs Push
 (tulis di sini)
