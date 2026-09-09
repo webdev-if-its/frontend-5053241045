@@ -45,7 +45,7 @@ TSX adalah TSX adalah format file yang digunakan untuk menulis TypeScript yang d
 Project ini memakai TSX karena tipe data props terdeteksi otomatis dan error tertangkap sebelum runtime 
 
 ## Kenapa Union Type untuk Status
-(tulis di sini)
+Union type lebih baik karena status yang digunakan sudah ditentukan, yaitu pending, selesai, atau batal. Jadi, tidak bisa sembarang memasukkan status lain dan dapat mengurangi kesalahan dalam penulisan status.
 
 ## Refleksi
 (tulis di sini)
