@@ -40,7 +40,9 @@ git commit adalah proses menyimpan perubahan ke git di komputer. Sedangkan git p
 Contoh situasi : Ana sudah melakukan commit setelah mengerjakan tugas, tetapi ia lupa untuk melakukan push. Akibatnya, perubahan tersebut hanya tersimpan di komputer ana saja dan belum ada di github, sehingga teman satu timnya belum bisa melihat perubahan tersebut karena ana belum melakukan push
 
 ## JSX vs TSX
-(tulis di sini)
+JSX adalah file yang dipakai untuk menulis kode javascript dengan bentuk yang hampir mirip html.
+TSX adalah TSX adalah format file yang digunakan untuk menulis TypeScript yang di dalamnya bisa menggunakan JSX.
+Project ini memakai TSX karena tipe data props terdeteksi otomatis dan error tertangkap sebelum runtime 
 
 ## Kenapa Union Type untuk Status
 (tulis di sini)
