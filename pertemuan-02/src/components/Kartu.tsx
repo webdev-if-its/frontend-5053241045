@@ -4,6 +4,13 @@
 //   (bukan "class", JSX pakai className — lihat SOAL.md bagian Aturan JSX/TSX)
 // - style inline padding 16 lewat objek: style={{ padding: 16 }}
 // - memuat teks judul di dalamnya
-export function Kartu(props: any) {
-  return <div>TODO</div>
+export function Kartu(props: { judul: string; aktif: boolean }) {
+  return (
+    <div
+      className={props.aktif ? "kartu aktif" : "kartu"}
+      style={{ padding: 16 }}
+    >
+      {props.judul}
+    </div>
+  );
 }
