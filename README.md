@@ -48,4 +48,5 @@ Project ini memakai TSX karena tipe data props terdeteksi otomatis dan error ter
 Union type lebih baik karena status yang digunakan sudah ditentukan, yaitu pending, selesai, atau batal. Jadi, tidak bisa sembarang memasukkan status lain dan dapat mengurangi kesalahan dalam penulisan status.
 
 ## Refleksi
-(tulis di sini)
+Menurut saya, yang paling beda dari HTML biasa itu saat menggunakan komponen dan props. Kalau biasanya di HTML saya langsung menulis isi yang mau ditampilkan, di React saya jadi bisa membuat komponen dan memasukkan isi atau data lewat props. Awalnya saya masih agak bingung, tapi setelah mencoba beberapa contoh jadi lebih ngerti bedanya.
+
