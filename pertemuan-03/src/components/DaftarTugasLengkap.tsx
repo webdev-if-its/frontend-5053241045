@@ -7,7 +7,29 @@
 //   "Hapus" yang saat diklik memanggil onHapus(id) dengan id tugas
 //   tersebut — MANFAATKAN KEMBALI komponen Button dari Level 7, jangan
 //   tulis <button> baru dari nol.
+
+import type { Tugas } from "../types";
+import { Button } from "./Button";
+import { KartuTugas } from "./KartuTugas";
+
 // Lihat SOAL.md untuk kontrak lengkap.
-export function DaftarTugasLengkap(props: any) {
-  return <p>TODO</p>
+export function DaftarTugasLengkap(props: { tugas: Tugas[]; onHapus: (id: string) => void }) {
+  return (
+    <div>
+      {props.tugas.length === 0 ? (
+        <p>Tidak ada tugas</p>
+      ) : (
+        <ul>
+          {props.tugas.map((tugas) => (
+            <li key={tugas.id}>
+              <KartuTugas teks={tugas.teks} selesai={tugas.selesai} />
+              <Button variant="danger" onClick={() => props.onHapus(tugas.id)}>
+                Hapus
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
