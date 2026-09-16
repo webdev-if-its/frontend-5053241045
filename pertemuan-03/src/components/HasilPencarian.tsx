@@ -8,6 +8,18 @@
 // - selain itu                 -> render <ul> berisi satu <li> per item
 //                                  hasil, dengan key yang tepat
 // Lihat SOAL.md untuk kontrak lengkap.
-export function HasilPencarian(props: any) {
-  return <p>TODO</p>
+export function HasilPencarian(props: { query: string; hasil: string[] }) {
+  if (props.query === "") {
+    return <p>Ketik sesuatu untuk mencari</p>
+  } else if (props.hasil.length === 0) {
+    return <p>Tidak ditemukan</p>
+  } else {
+    return (
+      <ul>
+        {props.hasil.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    )
+  }
 }
