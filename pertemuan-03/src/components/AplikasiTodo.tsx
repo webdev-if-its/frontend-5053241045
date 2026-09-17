@@ -9,7 +9,17 @@
 // bagian mana dari conditional rendering atau Tailwind pertemuan ini yang
 // paling mengubah cara berpikirmu dibanding menulis HTML/CSS biasa?
 //
+
+import type { Tugas } from "../types";
+import { RingkasanTugas } from "./RingkasanTugas";
+import { DaftarTugasLengkap } from "./DaftarTugasLengkap";
+
 // Lihat SOAL.md untuk kontrak lengkap.
-export function AplikasiTodo(props: any) {
-  return <p>TODO</p>
+export function AplikasiTodo(props: { tugas: Tugas[]; onHapus: (id: string) => void }) {
+  return (
+    <div>
+      <RingkasanTugas tugas={props.tugas} />
+      <DaftarTugasLengkap tugas={props.tugas} onHapus={props.onHapus} />
+    </div>
+  );
 }

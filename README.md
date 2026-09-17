@@ -50,3 +50,7 @@ Union type lebih baik karena status yang digunakan sudah ditentukan, yaitu pendi
 ## Refleksi
 Menurut saya, yang paling beda dari HTML biasa itu saat menggunakan komponen dan props. Kalau biasanya di HTML saya langsung menulis isi yang mau ditampilkan, di React saya jadi bisa membuat komponen dan memasukkan isi atau data lewat props. Awalnya saya masih agak bingung, tapi setelah mencoba beberapa contoh jadi lebih ngerti bedanya.
 
+## Refleksi Pertemuan 3
+Menurut saya, Tailwind membuat penulisan kode menjadi lebih simpel dibandingkan HTML dan CSS biasa. Saya tidak perlu membuat file CSS dan menulis banyak selector, karena style bisa langsung ditambahkan melalui class. Conditional rendering juga memudahkan saya untuk menampilkan tampilan yang berbeda berdasarkan kondisi.
+
+
