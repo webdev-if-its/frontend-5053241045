@@ -53,4 +53,5 @@ Menurut saya, yang paling beda dari HTML biasa itu saat menggunakan komponen dan
 ## Refleksi Pertemuan 3
 Menurut saya, Tailwind membuat penulisan kode menjadi lebih simpel dibandingkan HTML dan CSS biasa. Saya tidak perlu membuat file CSS dan menulis banyak selector, karena style bisa langsung ditambahkan melalui class. Conditional rendering juga memudahkan saya untuk menampilkan tampilan yang berbeda berdasarkan kondisi.
 
-
+## Refleksi Pertemuan 4
+Menurut saya, variabel biasa dan state itu berbeda. Kalau variabel biasa berubah, tampilan di React belum tentu ikut berubah. Sedangkan kalau state berubah, React akan memperbarui tampilannya. Selain itu, e.target.value dari input dibaca sebagai string, jadi kalau mau dipakai untuk menghitung harus diubah dulu ke number. Kalau tidak, misalnya 10 + 3, hasilnya bisa jadi 103 karena dianggap sebagai teks.
