@@ -4,6 +4,23 @@
 // useEffect. Wajib ada cleanup yang memanggil removeEventListener dengan
 // fungsi handler yang SAMA persis dengan yang dipasang.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function LebarJendela(props: any) {
-  return <p>TODO</p>
+
+import { useEffect, useState } from "react";
+
+export function LebarJendela() {
+  const [lebar, setLebar] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setLebar(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return <p>Lebar jendela: {lebar}px</p>;
 }
