@@ -55,3 +55,6 @@ Menurut saya, Tailwind membuat penulisan kode menjadi lebih simpel dibandingkan 
 
 ## Refleksi Pertemuan 4
 Menurut saya, variabel biasa dan state itu berbeda. Kalau variabel biasa berubah, tampilan di React belum tentu ikut berubah. Sedangkan kalau state berubah, React akan memperbarui tampilannya. Selain itu, e.target.value dari input dibaca sebagai string, jadi kalau mau dipakai untuk menghitung harus diubah dulu ke number. Kalau tidak, misalnya 10 + 3, hasilnya bisa jadi 103 karena dianggap sebagai teks.
+
+## Refleksi Pertemuan 6
+Cleanup pada useEffect penting untuk menghentikan timer atau listener yang sudah tidak digunakan. Kalau cleanup tidak dibuat, timer bisa berjalan terus atau listener bisa terpasang berkali-kali sehingga menyebabkan proses ganda. Di StrictMode saat development, console.log bisa muncul dua kali karena React menjalankan efek tambahan untuk mengecek apakah kode kita sudah benar. Dengan cleanup, timer dan listener bisa dibersihkan agar tidak menimbulkan masalah.
