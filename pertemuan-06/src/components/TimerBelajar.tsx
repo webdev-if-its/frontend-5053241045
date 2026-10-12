@@ -11,6 +11,74 @@
 //   terpasang, dan KEMBALI ke judul semula saat komponen dilepas
 //   (cleanup).
 // Lihat SOAL.md untuk kontrak lengkap.
-export function TimerBelajar(props: any) {
-  return <p>TODO</p>
+
+import { useEffect, useState } from "react";
+
+type TimerBelajarProps = {
+  detikAwal: number;
+};
+
+export function TimerBelajar({
+  detikAwal,
+}: TimerBelajarProps) {
+  const [sisa, setSisa] = useState(detikAwal);
+  const [berjalan, setBerjalan] = useState(false);
+
+  useEffect(() => {
+    const judulLama = document.title;
+
+    return () => {
+      document.title = judulLama;
+    };
+  }, []);
+
+  useEffect(() => {
+    document.title = `Sisa: ${sisa} detik`;
+  }, [sisa]);
+
+  useEffect(() => {
+    if (!berjalan || sisa === 0) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setSisa((nilaiSebelumnya) => nilaiSebelumnya - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [berjalan, sisa]);
+
+  useEffect(() => {
+    if (sisa === 0) {
+      setBerjalan(false);
+    }
+  }, [sisa]);
+
+  function mulaiAtauJeda() {
+    setBerjalan((nilaiSebelumnya) => !nilaiSebelumnya);
+  }
+
+  function reset() {
+    setSisa(detikAwal);
+    setBerjalan(false);
+  }
+
+  return (
+    <div>
+      <p>Sisa: {sisa} detik</p>
+
+      {sisa === 0 && <p>Selesai!</p>}
+
+      <button
+        onClick={mulaiAtauJeda}
+        disabled={sisa === 0}
+      >
+        {berjalan ? "Jeda" : "Mulai"}
+      </button>
+
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
 }
