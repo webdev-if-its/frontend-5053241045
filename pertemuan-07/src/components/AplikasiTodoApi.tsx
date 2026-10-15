@@ -10,6 +10,67 @@
 //   state dengan HASIL RESPONS,
 // - klik "Hapus": panggil hapusTodo(id), lalu buang todo itu dari state.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function AplikasiTodoApi(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState } from 'react'
+import { getTodos, addTodo } from '../api/todos'
+import type { Todo } from '../types'
+
+export function AplikasiTodoApi() {
+  const [todos, setTodos] = useState<Todo[]>([])
+  const [title, setTitle] = useState('')
+
+  useEffect(() => {
+    getTodos()
+      .then((data) => {
+        setTodos(data)
+      })
+      .catch((err: unknown) => {
+        console.error(err)
+      })
+  }, [])
+
+  async function handleTambah(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    if (!title.trim()) {
+      return
+    }
+
+    try {
+      const todoBaru = await addTodo(title)
+      setTodos((todosSebelumnya) => [...todosSebelumnya, todoBaru])
+      setTitle('')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleTambah}>
+        <label htmlFor="todo-baru">Todo baru</label>
+        <input
+          id="todo-baru"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button type="submit">Tambah</button>
+      </form>
+
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <label>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                readOnly
+              />
+              {todo.title}
+            </label>
+            <button type="button">Hapus</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
