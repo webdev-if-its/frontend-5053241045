@@ -11,7 +11,8 @@
 // - klik "Hapus": panggil hapusTodo(id), lalu buang todo itu dari state.
 // Lihat SOAL.md untuk kontrak lengkap.
 import { useEffect, useState } from 'react'
-import { getTodos, addTodo } from '../api/todos'
+import type { FormEvent } from 'react'
+import { getTodos, addTodo, updateTodo, hapusTodo } from '../api/todos'
 import type { Todo } from '../types'
 
 export function AplikasiTodoApi() {
@@ -28,7 +29,7 @@ export function AplikasiTodoApi() {
       })
   }, [])
 
-  async function handleTambah(e: React.FormEvent<HTMLFormElement>) {
+  async function handleTambah(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     if (!title.trim()) {
@@ -39,6 +40,32 @@ export function AplikasiTodoApi() {
       const todoBaru = await addTodo(title)
       setTodos((todosSebelumnya) => [...todosSebelumnya, todoBaru])
       setTitle('')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  async function handleToggle(todo: Todo) {
+    try {
+      const todoDiperbarui = await updateTodo(todo.id, !todo.completed)
+
+      setTodos((todosSebelumnya) =>
+        todosSebelumnya.map((item) =>
+          item.id === todo.id ? todoDiperbarui : item
+        )
+      )
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  async function handleHapus(id: number) {
+    try {
+      await hapusTodo(id)
+
+      setTodos((todosSebelumnya) =>
+        todosSebelumnya.filter((todo) => todo.id !== id)
+      )
     } catch (err) {
       console.error(err)
     }
@@ -63,11 +90,17 @@ export function AplikasiTodoApi() {
               <input
                 type="checkbox"
                 checked={todo.completed}
-                readOnly
+                onChange={() => handleToggle(todo)}
               />
               {todo.title}
             </label>
-            <button type="button">Hapus</button>
+
+            <button
+              type="button"
+              onClick={() => handleHapus(todo.id)}
+            >
+              Hapus
+            </button>
           </li>
         ))}
       </ul>
