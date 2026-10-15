@@ -8,6 +8,41 @@
 // Simpan data/loading/error di useState. JANGAN memanggil fetch() langsung di
 // sini (lihat Level 10).
 // Lihat SOAL.md untuk kontrak lengkap.
-export function DaftarTodoRemote(props: any) {
-  return <p>TODO</p>
+import { useEffect, useState } from 'react'
+import { getTodos } from '../api/todos'
+import type { Todo } from '../types'
+
+export function DaftarTodoRemote() {
+  const [todos, setTodos] = useState<Todo[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    getTodos()
+      .then((data) => {
+        setTodos(data)
+      })
+      .catch(() => {
+        setError('Gagal mengambil data')
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) {
+    return <p>Memuat...</p>
+  }
+
+  if (error) {
+    return <p>{error}</p>
+  }
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
+    </ul>
+  )
 }
