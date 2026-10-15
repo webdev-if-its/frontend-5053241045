@@ -5,8 +5,8 @@
 //   id) dan "Memuat..." hilang,
 // - kalau gagal (error apa pun), render "Terjadi error: {pesan error}" dan
 //   "Memuat..." hilang.
-// Simpan data/loading/error di useState. JANGAN memanggil fetch() langsung di
-// sini (lihat Level 10).
+// Simpan data/loading/error di useState. Semua request melalui fungsi API.
+// Lihat Level 10 untuk separation of concerns.
 // Lihat SOAL.md untuk kontrak lengkap.
 import { useEffect, useState } from 'react'
 import { getTodos } from '../api/todos'

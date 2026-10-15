@@ -1,6 +1,5 @@
 // TODO(Level 8-10): komponen TANPA props — aplikasi todo yang tersambung ke
-// API lewat fungsi di '../api/todos' (JANGAN memanggil fetch() langsung di
-// sini):
+// API lewat fungsi di '../api/todos' (semua request melalui fungsi API):
 // - saat pertama tampil: ambil daftar (getTodos) dan tampilkan sebagai <li>,
 //   tiap <li> berisi checkbox berlabel title + tombol "Hapus",
 // - form dengan input berlabel "Todo baru" + tombol "Tambah": panggil
