@@ -22,8 +22,12 @@ export function DaftarTodoRemote() {
       .then((data) => {
         setTodos(data)
       })
-      .catch(() => {
-        setError('Gagal mengambil data')
+      .catch((err: unknown) => {
+        if (err instanceof Error) {
+          setError(err.message)
+        } else {
+          setError(String(err))
+        }
       })
       .finally(() => {
         setLoading(false)
@@ -34,8 +38,8 @@ export function DaftarTodoRemote() {
     return <p>Memuat...</p>
   }
 
-  if (error) {
-    return <p>{error}</p>
+  if (error !== null) {
+    return <p>Terjadi error: {error}</p>
   }
 
   return (
