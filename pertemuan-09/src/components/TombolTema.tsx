@@ -2,6 +2,17 @@
 // sebuah <button> bertuliskan "Tema: {tema}" (mis. "Tema: terang") yang saat
 // diklik memanggil gantiTema().
 // Lihat SOAL.md untuk kontrak lengkap.
-export function TombolTema(props: any) {
-  return <button>TODO</button>
+
+import { useTema } from "../context/TemaContext";
+
+export function TombolTema() {
+  const { tema, gantiTema } = useTema();
+
+  return (
+    <button onClick={gantiTema}>
+      Tema: {tema}
+    </button>
+  );
 }
+
+
