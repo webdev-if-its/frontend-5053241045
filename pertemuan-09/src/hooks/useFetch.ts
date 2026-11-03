@@ -22,7 +22,12 @@ export function useFetch<T>(url: string): {
 
   useEffect(() => {
     fetch(url)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Gagal mengambil data");
+        }
+        return res.json();
+      })
       .then((result: T) => {
         setData(result);
         setLoading(false);
