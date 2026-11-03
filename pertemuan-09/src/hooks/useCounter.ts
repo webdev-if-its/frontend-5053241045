@@ -20,8 +20,9 @@ export function useCounter(initial: number = 0) {
   };
 
   const reset = () => {
-    setCount(0);
+    setCount(initial);
   };
 
   return { count, increment, decrement, reset };
 }
+
