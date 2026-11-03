@@ -3,6 +3,28 @@
 // - nilai: boolean (mulai dari `awal`),
 // - toggle(): membalik nilai, setTrue(): jadi true, setFalse(): jadi false.
 // Beri tipe parameter dan return yang tepat — lihat SOAL.md.
-export function useToggle(awal?: any): any {
-  return { nilai: false, toggle: () => {}, setTrue: () => {}, setFalse: () => {} }
+
+import { useState } from "react";
+
+export function useToggle(awal: boolean = false): {
+  nilai: boolean;
+  toggle: () => void;
+  setTrue: () => void;
+  setFalse: () => void;
+} {
+  const [nilai, setNilai] = useState<boolean>(awal);
+
+  const toggle = () => {
+    setNilai((prev) => !prev);
+  };
+
+  const setTrue = () => {
+    setNilai(true);
+  };
+
+  const setFalse = () => {
+    setNilai(false);
+  };
+
+  return { nilai, toggle, setTrue, setFalse };
 }
