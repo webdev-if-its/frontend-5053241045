@@ -21,6 +21,9 @@ export function useFetch<T>(url: string): {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    setLoading(true);
+    setError(null);
+
     fetch(url)
       .then((res) => {
         if (!res.ok) {
