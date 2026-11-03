@@ -59,6 +59,12 @@ Menurut saya, variabel biasa dan state itu berbeda. Kalau variabel biasa berubah
 ## Refleksi Pertemuan 6
 Cleanup pada useEffect penting untuk menghentikan timer atau listener yang sudah tidak digunakan. Kalau cleanup tidak dibuat, timer bisa berjalan terus atau listener bisa terpasang berkali-kali sehingga menyebabkan proses ganda. Di StrictMode saat development, console.log bisa muncul dua kali karena React menjalankan efek tambahan untuk mengecek apakah kode kita sudah benar. Dengan cleanup, timer dan listener bisa dibersihkan agar tidak menimbulkan masalah.
 
-## Refleksi Pertemuan 9
+## Refleksi Pertemuan 7
 
 Memisahkan fungsi API dari komponen membuat kode lebih rapi dan mudah dikelola. Komponen hanya mengurus tampilan dan state, sedangkan fungsi API menangani request ke server. Jadi, kalau ada perubahan pada request, kita cukup mengubah fungsi API. Selain itu, `fetch` tidak otomatis melempar error untuk respons 404 atau 500, sehingga kita perlu mengecek `res.ok` secara manual.
+
+## Refleksi Pertemuan 10
+
+Context cocok digunakan kalau beberapa komponen membutuhkan data yang sama, seperti tema. Jadi, kita tidak perlu mengirim props satu per satu. Kalau data hanya dibutuhkan oleh satu komponen, cukup menggunakan props.
+
+Dua komponen yang sama-sama menggunakan useFetch tidak berbagi data karena setiap pemanggilan hook punya state masing-masing. Walaupun URL-nya sama, data tetap diambil dan disimpan secara terpisah.
