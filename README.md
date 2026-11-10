@@ -68,3 +68,12 @@ Memisahkan fungsi API dari komponen membuat kode lebih rapi dan mudah dikelola. 
 Context cocok digunakan kalau beberapa komponen membutuhkan data yang sama, seperti tema. Jadi, kita tidak perlu mengirim props satu per satu. Kalau data hanya dibutuhkan oleh satu komponen, cukup menggunakan props.
 
 Dua komponen yang sama-sama menggunakan useFetch tidak berbagi data karena setiap pemanggilan hook punya state masing-masing. Walaupun URL-nya sama, data tetap diambil dan disimpan secara terpisah.
+
+## Refleksi Pertemuan 11
+
+`<Navigate />` digunakan untuk mengarahkan pengguna ke halaman lain berdasarkan kondisi tertentu, misalnya ketika pengguna belum login. Sementara itu, `useNavigate()` digunakan untuk berpindah halaman melalui fungsi, contohnya setelah proses login berhasil.
+
+Protected route di frontend saja belum cukup untuk mengamankan data karena pengguna masih bisa mengakses API secara langsung. Oleh karena itu, backend juga perlu melakukan pengecekan autentikasi dan otorisasi agar hanya pengguna yang memiliki hak akses yang bisa menggunakan endpoint tertentu.
+
+
+
