@@ -37,6 +37,9 @@ import { Beranda } from "./pages/Beranda";
 import { Tentang } from "./pages/Tentang";
 import { DaftarProduk } from "./pages/DaftarProduk";
 import { DetailProduk } from "./pages/DetailProduk";
+import { DashboardLayout } from "./components/DashboardLayout";
+import { Ringkasan } from "./pages/Ringkasan";
+import { DaftarPengguna } from "./pages/DaftarPengguna";
 
 export const routes: RouteObject[] = [
   { path: "/", element: <Beranda /> },
@@ -45,4 +48,17 @@ export const routes: RouteObject[] = [
   { path: "/produk/:id", element: <DetailProduk /> },
 ];
 
-export const dashboardRoute: any = { path: "/dashboard" };
+export const dashboardRoute: RouteObject = {
+  path: "/dashboard",
+  element: <DashboardLayout />,
+  children: [
+    {
+      index: true,
+      element: <Ringkasan />,
+    },
+    {
+      path: "pengguna",
+      element: <DaftarPengguna />,
+    },
+  ],
+};

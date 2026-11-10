@@ -5,6 +5,22 @@
 // - <Outlet /> (dari 'react-router-dom') sebagai tempat halaman anak tampil.
 // Bagian nav harus TETAP saat berpindah antar halaman anak.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function DashboardLayout(props: any) {
-  return <p>TODO</p>
+import { NavLink, Outlet } from "react-router-dom";
+
+export function DashboardLayout() {
+  return (
+    <>
+      <nav>
+        <NavLink to="/dashboard" end>
+          Ringkasan
+        </NavLink>
+
+        <NavLink to="/dashboard/pengguna">
+          Pengguna
+        </NavLink>
+      </nav>
+
+      <Outlet />
+    </>
+  );
 }
