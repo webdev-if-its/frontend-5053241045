@@ -35,16 +35,14 @@
 import type { RouteObject } from "react-router-dom";
 import { Beranda } from "./pages/Beranda";
 import { Tentang } from "./pages/Tentang";
+import { DaftarProduk } from "./pages/DaftarProduk";
+import { DetailProduk } from "./pages/DetailProduk";
 
 export const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <Beranda />,
-  },
-  {
-    path: "/tentang",
-    element: <Tentang />,
-  },
+  { path: "/", element: <Beranda /> },
+  { path: "/tentang", element: <Tentang /> },
+  { path: "/produk", element: <DaftarProduk /> },
+  { path: "/produk/:id", element: <DetailProduk /> },
 ];
 
 export const dashboardRoute: any = { path: "/dashboard" };
