@@ -40,6 +40,7 @@ import { DetailProduk } from "./pages/DetailProduk";
 import { DashboardLayout } from "./components/DashboardLayout";
 import { Ringkasan } from "./pages/Ringkasan";
 import { DaftarPengguna } from "./pages/DaftarPengguna";
+import { DetailPengguna } from "./pages/DetailPengguna";
 
 export const routes: RouteObject[] = [
   { path: "/", element: <Beranda /> },
@@ -59,6 +60,10 @@ export const dashboardRoute: RouteObject = {
     {
       path: "pengguna",
       element: <DaftarPengguna />,
+    },
+    {
+      path: "pengguna/:id",
+      element: <DetailPengguna />,
     },
   ],
 };
