@@ -46,6 +46,8 @@ import { Navbar } from "./components/Navbar";
 import { DashboardLayout } from "./components/DashboardLayout";
 import { RootLayout } from "./components/RootLayout";
 import { ErrorPage } from "./components/ErrorPage";
+import { HalamanLogin } from "./pages/HalamanLogin";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 export const dashboardRoute: RouteObject = {
   path: "/dashboard",
@@ -88,7 +90,14 @@ export const routes: RouteObject[] = [
         path: "produk/:id",
         element: <DetailProduk />,
       },
-      dashboardRoute,
+      {
+        path: "login",
+        element: <HalamanLogin />,
+      },
+      {
+        element: <ProtectedRoute />,
+        children: [dashboardRoute],
+      },
     ],
   },
 ];

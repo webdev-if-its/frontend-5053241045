@@ -2,6 +2,15 @@
 // '../auth'). Kalau belum login (user null) render <Navigate to="/login"
 // replace />; kalau sudah login render <Outlet /> supaya route anak tampil.
 // Lihat SOAL.md untuk kontrak lengkap.
-export function ProtectedRoute(props: any) {
-  return <p>TODO</p>
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../auth";
+
+export function ProtectedRoute() {
+  const { user } = useAuth();
+
+  if (user === null) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <Outlet />;
 }
