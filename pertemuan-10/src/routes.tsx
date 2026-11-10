@@ -33,21 +33,19 @@
 //
 // Beri tipe RouteObject (impor dari 'react-router-dom') — lihat SOAL.md.
 import type { RouteObject } from "react-router-dom";
+
 import { Beranda } from "./pages/Beranda";
 import { Tentang } from "./pages/Tentang";
 import { DaftarProduk } from "./pages/DaftarProduk";
 import { DetailProduk } from "./pages/DetailProduk";
-import { DashboardLayout } from "./components/DashboardLayout";
 import { Ringkasan } from "./pages/Ringkasan";
 import { DaftarPengguna } from "./pages/DaftarPengguna";
 import { DetailPengguna } from "./pages/DetailPengguna";
 
-export const routes: RouteObject[] = [
-  { path: "/", element: <Beranda /> },
-  { path: "/tentang", element: <Tentang /> },
-  { path: "/produk", element: <DaftarProduk /> },
-  { path: "/produk/:id", element: <DetailProduk /> },
-];
+import { Navbar } from "./components/Navbar";
+import { DashboardLayout } from "./components/DashboardLayout";
+import { RootLayout } from "./components/RootLayout";
+import { ErrorPage } from "./components/ErrorPage";
 
 export const dashboardRoute: RouteObject = {
   path: "/dashboard",
@@ -67,3 +65,30 @@ export const dashboardRoute: RouteObject = {
     },
   ],
 };
+
+export const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Beranda />,
+      },
+      {
+        path: "tentang",
+        element: <Tentang />,
+      },
+      {
+        path: "produk",
+        element: <DaftarProduk />,
+      },
+      {
+        path: "produk/:id",
+        element: <DetailProduk />,
+      },
+      dashboardRoute,
+    ],
+  },
+];
